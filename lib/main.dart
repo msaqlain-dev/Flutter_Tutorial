@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tutorial/class_2/container.dart';
 import 'package:tutorial/class_2/hello.dart';
+import 'package:tutorial/class_3/row_column.dart';
+import 'package:tutorial/class_3/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: HelloWorld(),
-      home: MyContainer(),
+      home: RowAndColumn(),
     );
   }
 }
