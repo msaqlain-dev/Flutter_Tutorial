@@ -7,7 +7,7 @@ class MyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final data = ['Muhammad Saqlain', 'Sohail', 'Ali'];
+    final data = ['Muhammad Saqlain', 'Sohail', 'Ali', 'Batool'];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
@@ -34,8 +34,8 @@ class MyScreen extends StatelessWidget {
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: ListView.builder(
-          itemCount: 10,
-          // scrollDirection: Axis.horizontal,
+          itemCount: data.length,
+          scrollDirection: Axis.vertical,
           itemBuilder: (context, index) {
             // return Text(
             //   '$index data',
@@ -43,7 +43,9 @@ class MyScreen extends StatelessWidget {
             // );
             return Column(
               children: [
-                ContactTile(),
+                ContactTile(
+                  name: data[index],
+                ),
                 SizedBox(
                   height: 20,
                 ),
@@ -342,8 +344,10 @@ class MyScreen extends StatelessWidget {
 }
 
 class ContactTile extends StatelessWidget {
+  final name;
   const ContactTile({
     super.key,
+    required this.name,
   });
 
   @override
@@ -356,7 +360,7 @@ class ContactTile extends StatelessWidget {
         color: const Color.fromARGB(255, 241, 182, 251),
         borderRadius: BorderRadius.circular(20),
       ),
-      child: const Row(
+      child: Row(
         children: [
           CircleAvatar(
             radius: 30,
@@ -371,7 +375,7 @@ class ContactTile extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Muhammad Saqlain',
+                name,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
